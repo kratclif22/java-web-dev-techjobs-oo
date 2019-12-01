@@ -30,6 +30,52 @@ public class Job {
         this.coreCompetency = aCoreCompetency;
     }
 
+    @Override
+    public String toString() {
+        String noData = "Data not available";
+        String nameData = this.name;
+        String employerData = this.employer.getValue();
+        String locationData = this.location.getValue();
+        String positionData = this.positionType.getValue();
+        String coreCompData = this.coreCompetency.getValue();
+
+        if (nameData.equals("")) {
+            nameData = noData;
+        }
+        if (employerData.equals("")) {
+            employerData = noData;
+        }
+        if (locationData.equals("")) {
+            locationData = noData;
+        }
+        if (positionData.equals("")) {
+            positionData = noData;
+        }
+        if (coreCompData.equals("")) {
+            coreCompData = noData;
+        }
+        if (nameData.equals(noData) && employerData.equals(noData) && locationData.equals(noData)
+        && positionData.equals(noData) && coreCompData.equals(noData)) {
+            return " \n" +
+                    "ID: " + this.id + "\n" +
+                    "Name: " + nameData + "\n" +
+                    "Employer: " + employerData + "\n" +
+                    "Location: " + locationData + "\n" +
+                    "Position Type: " + positionData + "\n" +
+                    "Core Competency: " + coreCompData + "\n" +
+                    "OOPS! This job does not seem to exist." +
+                    "\n ";
+        } else {
+            return " \n" +
+                    "ID: " + this.id + "\n" +
+                    "Name: " + nameData + "\n" +
+                    "Employer: " + employerData + "\n" +
+                    "Location: " + locationData + "\n" +
+                    "Position Type: " + positionData + "\n" +
+                    "Core Competency: " + coreCompData +
+                    "\n ";
+        }
+    }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
